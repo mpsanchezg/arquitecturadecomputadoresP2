@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.34 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.34 secs
  
 --> Reading design: top.prj
 
@@ -107,14 +107,14 @@ Slice Utilization Ratio Delta      : 5
 Compiling verilog file "register_a.v" in library work
 Compiling verilog file "pc.v" in library work
 Module <register_a> compiled
-Compiling verilog file "../Meta2.0/register_b.v" in library work
+Compiling verilog file "alu.v" in library work
 Module <pc> compiled
+Compiling verilog file "../Meta2.0/register_b.v" in library work
+Module <alu> compiled
 Compiling verilog file "../Meta2.0/instruction_memory.v" in library work
 Module <register_b> compiled
-Compiling verilog file "../Meta2.0/alu.v" in library work
-Module <instruction_memory> compiled
 Compiling verilog file "top.v" in library work
-Module <alu> compiled
+Module <instruction_memory> compiled
 Module <top> compiled
 Module <computer> compiled
 No errors in compilation
@@ -182,7 +182,7 @@ Synthesizing Unit <instruction_memory>.
     Related source file is "../Meta2.0/instruction_memory.v".
 WARNING:Xst:647 - Input <address<7:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:1781 - Signal <mem> is used but never assigned. Tied to default value.
-    Found 15x15-bit ROM for signal <$COND_1>.
+    Found 15x15-bit ROM for signal <$COND_2>.
     Summary:
 	inferred   1 ROM(s).
 Unit <instruction_memory> synthesized.
@@ -205,7 +205,7 @@ Unit <register_b> synthesized.
 
 
 Synthesizing Unit <alu>.
-    Related source file is "../Meta2.0/alu.v".
+    Related source file is "alu.v".
 WARNING:Xst:737 - Found 8-bit latch for signal <out>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
     Found 8-bit addsub for signal <out$addsub0000>.
@@ -423,7 +423,7 @@ Delay:               6.913ns (Levels of Logic = 11)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDR:C->Q              6   0.591   0.844  Comp/PC/pcc_1 (Comp/PC/pcc_1)
-     LUT4_D:I0->O         11   0.704   1.012  Comp/im/Mrom__COND_111 (Comp/im/Mrom__COND_1)
+     LUT4_D:I0->O         11   0.704   1.012  Comp/im/Mrom__COND_211 (Comp/im/Mrom__COND_2)
      LUT3:I1->O            1   0.704   0.000  Comp/ALU/Maddsub_out_addsub0000_lut<0> (Comp/ALU/Maddsub_out_addsub0000_lut<0>)
      MUXCY:S->O            1   0.464   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<0> (Comp/ALU/Maddsub_out_addsub0000_cy<0>)
      MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<1> (Comp/ALU/Maddsub_out_addsub0000_cy<1>)
@@ -461,14 +461,14 @@ Offset:              4.394ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 3.13 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.83 secs
  
 --> 
 
-Total memory usage is 267964 kilobytes
+Total memory usage is 268796 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   20 (   0 filtered)
+Number of warnings :   21 (   0 filtered)
 Number of infos    :    2 (   0 filtered)
 
