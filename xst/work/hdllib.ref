@@ -1,0 +1,7 @@
+MO instruction_memory NULL ../Meta2.0/instruction_memory.v vlg62/instruction__memory.bin 1535639384
+MO pc NULL pc.v vlg13/pc.bin 1535639384
+MO top NULL top.v vlg6F/top.bin 1535639384
+MO computer NULL top.v vlg2F/computer.bin 1535639384
+MO register_a NULL register_a.v vlg3D/register__a.bin 1535639384
+MO register_b NULL ../Meta2.0/register_b.v vlg3E/register__b.bin 1535639384
+MO alu NULL ../Meta2.0/alu.v vlg0A/alu.bin 1535639384

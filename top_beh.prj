@@ -1,0 +1,7 @@
+verilog work "register_a.v"
+verilog work "pc.v"
+verilog work "../Meta2.0/register_b.v"
+verilog work "../Meta2.0/instruction_memory.v"
+verilog work "../Meta2.0/alu.v"
+verilog work "top.v"
+verilog work "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"
