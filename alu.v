@@ -31,8 +31,8 @@ module ALU(regA, regB, S, M);
 		case (S)
 			3'b000: M <= regA + regB;
 			3'b001: M <= regA - regB;
-			3'b010: M <= regA && regB;
-			3'b011: M <= regA || regB;
+			3'b010: M <= regA & regB;
+			3'b011: M <= regA | regB;
 			3'b100: M <= ~regA;
 			3'b101: M <= regA ^ regB;
 			3'b110: M <= regA << 1;
