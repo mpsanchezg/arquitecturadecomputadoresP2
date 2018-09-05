@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Universidad de los Andes
+// Engineer: Santiago Figueroa Mc Intyre
 // 
 // Create Date:    21:13:53 09/04/2018 
 // Design Name: 
