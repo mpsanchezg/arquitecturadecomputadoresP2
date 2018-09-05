@@ -27,9 +27,10 @@ module Mux_b(B, Im, s, out);
 	
 	always @(s, B, Im)
 		case(s)
-			'b00: out = B;
-			'b01: out = 'b00000000;
-			'b10: out = Im;
+			'b00: out <= B;
+			'b01: out <= 'b00000000;
+			'b10: out <= Im;
+			default: out <= 0;
 		endcase
 
 endmodule

@@ -28,7 +28,7 @@ module register_a(clk, data, load, out);
   reg [7:0] out;
 
   initial begin
-	out = 8'b00010101;
+	out = 8'b00000000;
   end
 
   always @(posedge clk) begin

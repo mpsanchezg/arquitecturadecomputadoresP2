@@ -39,28 +39,58 @@ Data Sheet report:
 -----------------
 All values displayed in nanoseconds (ns)
 
+Clock clk to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+an<0>       |    7.702(R)|clk_BUFGP         |   0.000|
+an<1>       |    8.057(R)|clk_BUFGP         |   0.000|
+an<2>       |    8.114(R)|clk_BUFGP         |   0.000|
+an<3>       |    7.994(R)|clk_BUFGP         |   0.000|
+seg<0>      |    8.815(R)|clk_BUFGP         |   0.000|
+seg<1>      |    7.751(R)|clk_BUFGP         |   0.000|
+seg<2>      |    8.462(R)|clk_BUFGP         |   0.000|
+seg<3>      |    8.050(R)|clk_BUFGP         |   0.000|
+seg<4>      |    8.041(R)|clk_BUFGP         |   0.000|
+seg<5>      |    8.761(R)|clk_BUFGP         |   0.000|
+seg<6>      |    7.823(R)|clk_BUFGP         |   0.000|
+------------+------------+------------------+--------+
+
 Clock sw to Pad
 ------------+------------+------------------+--------+
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-Led<0>      |   11.235(R)|sw_BUFGP          |   0.000|
-Led<1>      |   10.982(R)|sw_BUFGP          |   0.000|
-Led<2>      |   11.748(R)|sw_BUFGP          |   0.000|
-Led<3>      |   10.476(R)|sw_BUFGP          |   0.000|
-Led<4>      |    9.459(R)|sw_BUFGP          |   0.000|
+Led<0>      |   10.934(R)|sw_BUFGP          |   0.000|
+Led<1>      |   10.655(R)|sw_BUFGP          |   0.000|
+Led<2>      |   10.789(R)|sw_BUFGP          |   0.000|
+Led<3>      |   11.931(R)|sw_BUFGP          |   0.000|
+Led<4>      |   11.503(R)|sw_BUFGP          |   0.000|
+Led<5>      |   14.417(R)|sw_BUFGP          |   0.000|
+Led<6>      |   11.538(R)|sw_BUFGP          |   0.000|
+Led<7>      |   11.601(R)|sw_BUFGP          |   0.000|
 ------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    5.183|         |         |         |
+sw             |   15.326|         |         |         |
+---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock sw
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-sw             |    4.248|         |         |         |
+sw             |    8.751|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Wed Sep 05 10:34:46 2018 
+Analysis completed Wed Sep 05 19:47:10 2018 
 --------------------------------------------------------------------------------
 
 Trace Settings:

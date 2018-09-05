@@ -9,33 +9,33 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Wed Sep 05 10:34:34 2018
+Mapped Date    : Wed Sep 05 19:46:54 2018
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    0
 Logic Utilization:
-  Number of Slice Flip Flops:            10 out of   9,312    1%
-  Number of 4 input LUTs:                 4 out of   9,312    1%
+  Number of Slice Flip Flops:            43 out of   9,312    1%
+  Number of 4 input LUTs:               161 out of   9,312    1%
 Logic Distribution:
-  Number of occupied Slices:              7 out of   4,656    1%
-    Number of Slices containing only related logic:       7 out of       7 100%
-    Number of Slices containing unrelated logic:          0 out of       7   0%
+  Number of occupied Slices:             95 out of   4,656    2%
+    Number of Slices containing only related logic:      95 out of      95 100%
+    Number of Slices containing unrelated logic:          0 out of      95   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:          11 out of   9,312    1%
-    Number used as logic:                 4
-    Number used as a route-thru:          7
+  Total Number of 4 input LUTs:         171 out of   9,312    1%
+    Number used as logic:               161
+    Number used as a route-thru:         10
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
-  Number of bonded IOBs:                  9 out of     232    3%
-  Number of BUFGMUXs:                     1 out of      24    4%
+  Number of bonded IOBs:                 21 out of     232    9%
+  Number of BUFGMUXs:                     2 out of      24    8%
 
-Average Fanout of Non-Clock Nets:                2.25
+Average Fanout of Non-Clock Nets:                4.06
 
-Peak Memory Usage:  254 MB
+Peak Memory Usage:  256 MB
 Total REAL time to MAP completion:  1 secs 
 Total CPU time to MAP completion:   1 secs 
 
@@ -116,6 +116,18 @@ Section 6 - IOB Properties
 | Led<5>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
 | Led<6>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
 | Led<7>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| an<0>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| an<1>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| an<2>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| an<3>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| clk                                | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| seg<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| seg<1>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| seg<2>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| seg<3>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| seg<4>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| seg<5>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| seg<6>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
 | sw                                 | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    19:23:26 09/04/2018 
+// Create Date:    13:49:25 09/05/2018 
 // Design Name: 
-// Module Name:    Mux_a 
+// Module Name:    seven_seg_decoder 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,17 +18,12 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Mux_a(A, s, out);
-	input [7:0] A;
-	input s;
-	output [7:0] out;
+module seven_seg_decoder(bcd, blank, seg);
+	input [3:0] bcd;
+	input blank;
+	output [7:1] seg;
 	
-	reg [7:0] out;
 	
-	always @(s, A)
-		case(s)
-			'b0: out <= A;
-			'b1: out <= 'b00000000;
-			default: out <= 0;
-		endcase
+
+
 endmodule

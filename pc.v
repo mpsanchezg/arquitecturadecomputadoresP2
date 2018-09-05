@@ -31,7 +31,7 @@ module pc(clk, pcc);
 
   always @(posedge clk) begin
 	pcc <= pcc + 1;
-	if (pcc == 3) begin
+	if (pcc == 24) begin
 		pcc <= 0;
 	end
   end

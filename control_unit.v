@@ -26,179 +26,222 @@ module control_unit(address, lRegB, lRegA, sMuxB, sMuxA, sAlu);
 	output         sMuxA;
 	output [2:0]    sAlu;
 	
-	wire [4:0]   address;
-	reg            lRegB = 0;
-	reg            lRegA = 0;
-	reg  [1:0] sMuxB = 2'b00;
-	reg            sMuxA = 0;
-	reg  [2:0]      sAlu = 0;
+	wire [4:0] address;
+	reg          lRegB;
+	reg          lRegA;
+	reg  [1:0]   sMuxB;
+	reg          sMuxA;
+	reg  [2:0]    sAlu;
 	
 	always @(address) begin
 	case(address)
 		5'b00000:
 			begin
-				lRegA = 1;
-				sMuxA = 1;
+				lRegA <= 1;
+				lRegB <= 0;
+				sMuxB <= 2'b00;
+				sMuxA <= 1;
+				sAlu  <= 3'b000;
 			end
 		5'b00001:
 			begin
-				lRegB =     1;
-				sMuxB = 2'b10;
+				lRegA <=      0;
+				lRegB <=      1;
+				sMuxA <=      0;
+				sMuxB <=  2'b10;
+				sAlu  <= 3'b000;
 			end
 		5'b00010:
 			begin
-				lRegA =     1;
-				sMuxA =     1;
-				sMuxB = 2'b01;
+				lRegA <=     1;
+				lRegB <=     0;
+				sMuxA <=     1;
+				sMuxB <= 2'b01;
+				sAlu  <= 3'b000;
 			end
 		5'b00011:
 			begin
-				lRegB =     1;
-				sMuxA =     1;
-				sMuxB = 2'b01;
+				lRegA <=     0;
+				lRegB <=     1;
+				sMuxA <=     1;
+				sMuxB <= 2'b01;
+				sAlu  <= 3'b000;
 			end
 		5'b00100:
 			begin
-				lRegA = 1;
+				lRegA <=      1;
+				lRegB <=      0;
+				sMuxA <=      0;
+				sMuxB <=  2'b00;
+				sAlu  <= 3'b000;
 			end
 		5'b00101:
 			begin
-				lRegB = 1;
+				lRegA <= 0;
+				lRegB <= 1;
+				sMuxA <= 0;
+				sMuxB <= 2'b00;
+				sAlu  <= 3'b000;
 			end
 		5'b00110:
 			begin
-				lRegA =     1;
-				sMuxB = 2'b01;
+				lRegA <=      1;
+				lRegB <=      0;
+				sMuxA <=      0;
+				sMuxB <=  2'b01;
+				sAlu  <= 3'b000;
 			end
 		5'b00111:
 			begin
-				lRegA =      1;
-				sAlu  = 3'b001;
+				lRegA <=      1;
+				lRegB <=      0;
+				sMuxA <=      0;
+				sMuxB <=  2'b00;
+				sAlu  <= 3'b001;
 			end
 		5'b01000:
 			begin
-				lRegB =      1;
-				sAlu  = 3'b001;
+				lRegA <=      0;
+				lRegB <=      1;
+				sMuxA <=      0;
+				sMuxB <=  2'b00;
+				sAlu  <= 3'b001;
 			end
 		5'b01001: 
 			begin
-				lRegA =      1;
-				sMuxB =  2'b01;
-				sAlu  = 3'b001;
+				lRegA <=      1;
+				lRegB <=      0;
+				sMuxA <=      0;
+				sMuxB <=  2'b01;
+				sAlu  <= 3'b001;
 			end
 		5'b01010:
 			begin
-				lRegA =      1;
-				sAlu  = 3'b010;
+				lRegA <=      1;
+				lRegB <=      0;
+				sMuxA <=      0;
+				sMuxB <=  2'b00;
+				sAlu  <= 3'b010;
 			end
 		5'b01011:
 			begin
-				lRegB =      1;
-				sAlu  = 3'b010;
+				lRegA <=      0;
+				lRegB <=      1;
+				sMuxA <=      0;
+				sMuxB <=  2'b00;
+				sAlu  <= 3'b010;
 			end
 		5'b01100: 
 			begin
-			  lRegA =   1;
-			  lRegB =   0;
-			  sMuxA =   0;
-			  sMuxB =  01;
-			  sAlu  = 010;
+			  lRegA <=   1;
+			  lRegB <=   0;
+			  sMuxA <=   0;
+			  sMuxB <=  2'b01;
+			  sAlu  <= 3'b010;
 			end
 		5'b01101: 
 			begin
-			  lRegA = 1;
-			  lRegB = 0;
-			  sMuxA = 0;
-			  sMuxB = 00;
-			  sAlu = 011;
+			  lRegA <=  1;
+			  lRegB <=  0;
+			  sMuxA <=  0;
+			  sMuxB <= 2'b00;
+			  sAlu <= 3'b011;
 			end
 		5'b01110: 
 			begin
-			  lRegA =   0;
-			  lRegB =   1;
-			  sMuxA =   0;
-			  sMuxB =  00;
-			  sAlu  = 011;
+			  lRegA <=   0;
+			  lRegB <=   1;
+			  sMuxA <=   0;
+			  sMuxB <=  2'b00;
+			  sAlu  <= 3'b011;
 			end
 		5'b01111:
 			begin
-			  lRegA =   1;
-			  lRegB =   0;
-			  sMuxA =   0;
-			  sMuxB =  01;
-			  sAlu  = 011;
+			  lRegA <=   1;
+			  lRegB <=   0;
+			  sMuxA <=   0;
+			  sMuxB <=  2'b01;
+			  sAlu  <= 3'b011;
 			end
 		5'b10000: 
 			begin
-			  lRegA =   1;
-			  lRegB =   0;
-			  sMuxA =   0;
-			  sMuxB =  00;
-			  sAlu  = 100;
+			  lRegA <=   1;
+			  lRegB <=   0;
+			  sMuxA <=   0;
+			  sMuxB <=  2'b00;
+			  sAlu  <= 3'b100;
 			end
 		5'b10001: 
 			begin
-			  lRegA =   0;
-			  lRegB =   1;
-			  sMuxA =   0;
-			  sMuxB =  00;
-			  sAlu  = 100;
+			  lRegA <=   0;
+			  lRegB <=   1;
+			  sMuxA <=   0;
+			  sMuxB <=  2'b00;
+			  sAlu  <= 3'b100;
 			end
 		5'b10010:
 			begin
-			  lRegA =   1;
-			  lRegB =   0;
-			  sMuxA =   0;
-			  sMuxB =  00;
-			  sAlu  = 101;
+			  lRegA <=   1;
+			  lRegB <=   0;
+			  sMuxA <=   0;
+			  sMuxB <=  2'b00;
+			  sAlu  <= 3'b101;
 			end
 		5'b10011:
 			begin
-			  lRegA =   0;
-			  lRegB =   1;
-			  sMuxA =   0;
-			  sMuxB =  00;
-			  sAlu  = 101;
+			  lRegA <=   0;
+			  lRegB <=   1;
+			  sMuxA <=   0;
+			  sMuxB <=  2'b00;
+			  sAlu  <= 3'b101;
 			end
 		5'b10100: 
 			begin
-			  lRegA =   1;
-			  lRegB =   0;
-			  sMuxA =   0;
-			  sMuxB =  01;
-			  sAlu  = 101;
+			  lRegA <=   1;
+			  lRegB <=   0;
+			  sMuxA <=   0;
+			  sMuxB <=  2'b01;
+			  sAlu  <= 3'b101;
 			end
 	   5'b10101: 
 			begin
-			  lRegA =   1;
-			  lRegB =   0;
-		     sMuxA =   0;
-		     sMuxB =  00;
-		     sAlu  = 110;
+			  lRegA <=   1;
+			  lRegB <=   0;
+		     sMuxA <=   0;
+		     sMuxB <=  2'b00;
+		     sAlu  <= 3'b110;
 			end
 		5'b10110: 
 			begin
-			  lRegA =   0;
-			  lRegB =   1;
-			  sMuxA =   0;
-			  sMuxB =  00;
-			  sAlu  = 110;
+			  lRegA <=      0;
+			  lRegB <=      1;
+			  sMuxA <=      0;
+			  sMuxB <=  2'b00;
+			  sAlu  <= 3'b110;
 			end
 	   5'b10111:
 			begin
-			  lRegA =   1;
-			  lRegB =   0;
-			  sMuxA =   0;
-			  sMuxB =  00;
-			  sAlu  = 111;
+			  lRegA <=      1;
+			  lRegB <=      0;
+			  sMuxA <=      0;
+			  sMuxB <=  2'b00;
+			  sAlu  <= 3'b111;
 			end
 		5'b11000:
 			begin
-			  lRegA =   0;
-			  lRegB =   1;
-			  sMuxA =   0;
-			  sMuxB =  00;
-			  sAlu  = 111;
+			  lRegA <=      0;
+			  lRegB <=      1;
+			  sMuxA <=      0;
+			  sMuxB <=  2'b00;
+			  sAlu  <= 3'b111;
+			end
+		default:
+			begin
+			  lRegA <=      0;
+			  lRegB <=      0;
+			  sMuxA <=      0;
+			  sMuxB <=      0;
+			  sAlu  <= 3'b000;
 			end
 	endcase
   end
