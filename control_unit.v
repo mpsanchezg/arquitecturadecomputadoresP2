@@ -26,7 +26,7 @@ module control_unit(address, lRegB, lRegA, sMuxB, sMuxA, sAlu);
 	output         sMuxA;
 	output [2:0]    sAlu;
 	
-	wire [4:0]   address = 0;
+	wire [4:0]   address;
 	reg            lRegB = 0;
 	reg            lRegA = 0;
 	reg  [1:0] sMuxB = 2'b00;

@@ -1,0 +1,49 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to D:/Universidad/Universidad/Anos/Cuarto_Ano/Octavo_Semestre/Arquitectura de Computadores/Proyecto 2/Meta2.1/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.57 secs
+ 
+--> Parameter xsthdpdir set to D:/Universidad/Universidad/Anos/Cuarto_Ano/Octavo_Semestre/Arquitectura de Computadores/Proyecto 2/Meta2.1/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.57 secs
+ 
+--> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "register_a.v" in library work
+Compiling verilog file "pc.v" in library work
+Module <register_a> compiled
+Compiling verilog file "Mux_b.v" in library work
+Module <pc> compiled
+ERROR:HDLCompilers:207 - "Mux_b.v" line 22 Signal 'L' is not referenced in the module port list
+ERROR:HDLCompilers:28 - "Mux_b.v" line 28 'L' has not been declared
+Compiling verilog file "Mux_a.v" in library work
+Module <Mux_b> compiled
+Compiling verilog file "control_unit.v" in library work
+Module <Mux_a> compiled
+Compiling verilog file "alu.v" in library work
+Module <control_unit> compiled
+Compiling verilog file "../Meta2.0/register_b.v" in library work
+Module <alu> compiled
+Compiling verilog file "../Meta2.0/instruction_memory.v" in library work
+Module <register_b> compiled
+Compiling verilog file "top.v" in library work
+Module <instruction_memory> compiled
+Module <top> compiled
+Module <computer> compiled
+Analysis of file <"computer.prj"> failed.
+--> 
+
+Total memory usage is 250992 kilobytes
+
+Number of errors   :    2 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

@@ -1,0 +1,5 @@
+set -tmpdir "D:/Universidad/Universidad/Anos/Cuarto_Ano/Octavo_Semestre/Arquitectura de Computadores/Proyecto 2/Meta2.1/xst/projnav.tmp"
+set -xsthdpdir "D:/Universidad/Universidad/Anos/Cuarto_Ano/Octavo_Semestre/Arquitectura de Computadores/Proyecto 2/Meta2.1/xst"
+elaborate
+-ifn Mux_a.prj
+-ifmt mixed

@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: top.prj
 
@@ -107,8 +107,14 @@ Slice Utilization Ratio Delta      : 5
 Compiling verilog file "register_a.v" in library work
 Compiling verilog file "pc.v" in library work
 Module <register_a> compiled
-Compiling verilog file "alu.v" in library work
+Compiling verilog file "Mux_b.v" in library work
 Module <pc> compiled
+Compiling verilog file "Mux_a.v" in library work
+Module <Mux_b> compiled
+Compiling verilog file "control_unit.v" in library work
+Module <Mux_a> compiled
+Compiling verilog file "alu.v" in library work
+Module <control_unit> compiled
 Compiling verilog file "../Meta2.0/register_b.v" in library work
 Module <alu> compiled
 Compiling verilog file "../Meta2.0/instruction_memory.v" in library work
@@ -132,9 +138,15 @@ Analyzing hierarchy for module <pc> in library <work>.
 
 Analyzing hierarchy for module <instruction_memory> in library <work>.
 
+Analyzing hierarchy for module <control_unit> in library <work>.
+
 Analyzing hierarchy for module <register_a> in library <work>.
 
 Analyzing hierarchy for module <register_b> in library <work>.
+
+Analyzing hierarchy for module <Mux_a> in library <work>.
+
+Analyzing hierarchy for module <Mux_b> in library <work>.
 
 Analyzing hierarchy for module <alu> in library <work>.
 
@@ -154,11 +166,20 @@ Module <pc> is correct for synthesis.
 Analyzing module <instruction_memory> in library <work>.
 Module <instruction_memory> is correct for synthesis.
  
+Analyzing module <control_unit> in library <work>.
+Module <control_unit> is correct for synthesis.
+ 
 Analyzing module <register_a> in library <work>.
 Module <register_a> is correct for synthesis.
  
 Analyzing module <register_b> in library <work>.
 Module <register_b> is correct for synthesis.
+ 
+Analyzing module <Mux_a> in library <work>.
+Module <Mux_a> is correct for synthesis.
+ 
+Analyzing module <Mux_b> in library <work>.
+Module <Mux_b> is correct for synthesis.
  
 Analyzing module <alu> in library <work>.
 Module <alu> is correct for synthesis.
@@ -182,10 +203,25 @@ Synthesizing Unit <instruction_memory>.
     Related source file is "../Meta2.0/instruction_memory.v".
 WARNING:Xst:647 - Input <address<7:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:1781 - Signal <mem> is used but never assigned. Tied to default value.
-    Found 15x15-bit ROM for signal <$COND_2>.
+    Found 15x13-bit ROM for signal <$COND_2>.
     Summary:
 	inferred   1 ROM(s).
 Unit <instruction_memory> synthesized.
+
+
+Synthesizing Unit <control_unit>.
+    Related source file is "control_unit.v".
+WARNING:Xst:737 - Found 1-bit latch for signal <lRegA>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <sMuxA>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <lRegB>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 2-bit latch for signal <sMuxB>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 3-bit latch for signal <sAlu>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+Unit <control_unit> synthesized.
 
 
 Synthesizing Unit <register_a>.
@@ -204,6 +240,21 @@ Synthesizing Unit <register_b>.
 Unit <register_b> synthesized.
 
 
+Synthesizing Unit <Mux_a>.
+    Related source file is "Mux_a.v".
+Unit <Mux_a> synthesized.
+
+
+Synthesizing Unit <Mux_b>.
+    Related source file is "Mux_b.v".
+WARNING:Xst:737 - Found 8-bit latch for signal <out>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 8-bit 3-to-1 multiplexer for signal <out$mux0000>.
+    Summary:
+	inferred   8 Multiplexer(s).
+Unit <Mux_b> synthesized.
+
+
 Synthesizing Unit <alu>.
     Related source file is "alu.v".
 WARNING:Xst:737 - Found 8-bit latch for signal <out>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -216,7 +267,8 @@ Unit <alu> synthesized.
 
 Synthesizing Unit <computer>.
     Related source file is "top.v".
-WARNING:Xst:646 - Signal <im_out_bus<14:6>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <out_cu_lregB> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <out_cu_lregA> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <computer> synthesized.
 
 
@@ -231,15 +283,20 @@ HDL Synthesis Report
 
 Macro Statistics
 # ROMs                                                 : 1
- 15x15-bit ROM                                         : 1
+ 15x13-bit ROM                                         : 1
 # Adders/Subtractors                                   : 1
  8-bit addsub                                          : 1
 # Counters                                             : 1
  8-bit up counter                                      : 1
 # Registers                                            : 2
  8-bit register                                        : 2
-# Latches                                              : 1
- 8-bit latch                                           : 1
+# Latches                                              : 7
+ 1-bit latch                                           : 3
+ 2-bit latch                                           : 1
+ 3-bit latch                                           : 1
+ 8-bit latch                                           : 2
+# Multiplexers                                         : 1
+ 8-bit 3-to-1 multiplexer                              : 1
 
 =========================================================================
 
@@ -253,15 +310,20 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # ROMs                                                 : 1
- 15x15-bit ROM                                         : 1
+ 15x13-bit ROM                                         : 1
 # Adders/Subtractors                                   : 1
  8-bit addsub                                          : 1
 # Counters                                             : 1
  8-bit up counter                                      : 1
 # Registers                                            : 16
  Flip-Flops                                            : 16
-# Latches                                              : 1
- 8-bit latch                                           : 1
+# Latches                                              : 7
+ 1-bit latch                                           : 3
+ 2-bit latch                                           : 1
+ 3-bit latch                                           : 1
+ 8-bit latch                                           : 2
+# Multiplexers                                         : 1
+ 8-bit 3-to-1 multiplexer                              : 1
 
 =========================================================================
 
@@ -275,26 +337,63 @@ Optimizing unit <register_a> ...
 
 Optimizing unit <register_b> ...
 
+Optimizing unit <control_unit> ...
+
 Optimizing unit <alu> ...
-WARNING:Xst:1293 - FF/Latch <Comp/regB/out_7> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_6> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_5> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_4> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <computer> ...
+WARNING:Xst:1426 - The value init of the FF/Latch Comp/CU/sMuxA hinder the constant cleaning in the block top.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1710 - FF/Latch <Comp/MuxB/out_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Comp/MuxB/out_1> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Comp/MuxB/out_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Comp/MuxB/out_3> (without init value) has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Comp/MuxB/out_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Comp/MuxB/out_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Comp/MuxB/out_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Comp/MuxB/out_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Comp/CU/sMuxB_1> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Comp/CU/sMuxB_0> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Comp/CU/sAlu_2> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Comp/CU/sAlu_1> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Comp/CU/sAlu_0> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_3> has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_4> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_5> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_6> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_7> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_2> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_1> has a constant value of 1 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regB/out_0> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1294 - Latch <Comp/ALU/out_7> is equivalent to a wire in block <top>.
-WARNING:Xst:1294 - Latch <Comp/ALU/out_6> is equivalent to a wire in block <top>.
-WARNING:Xst:1294 - Latch <Comp/ALU/out_5> is equivalent to a wire in block <top>.
-WARNING:Xst:1294 - Latch <Comp/ALU/out_4> is equivalent to a wire in block <top>.
-WARNING:Xst:1294 - Latch <Comp/ALU/out_3> is equivalent to a wire in block <top>.
-WARNING:Xst:1294 - Latch <Comp/ALU/out_2> is equivalent to a wire in block <top>.
-WARNING:Xst:1294 - Latch <Comp/ALU/out_1> is equivalent to a wire in block <top>.
+WARNING:Xst:2677 - Node <Comp/CU/lRegB> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <Comp/CU/lRegA> of sequential type is unconnected in block <top>.
 WARNING:Xst:1294 - Latch <Comp/ALU/out_0> is equivalent to a wire in block <top>.
+WARNING:Xst:1294 - Latch <Comp/ALU/out_1> is equivalent to a wire in block <top>.
+WARNING:Xst:1294 - Latch <Comp/ALU/out_2> is equivalent to a wire in block <top>.
+WARNING:Xst:1294 - Latch <Comp/ALU/out_3> is equivalent to a wire in block <top>.
+WARNING:Xst:1294 - Latch <Comp/ALU/out_4> is equivalent to a wire in block <top>.
+WARNING:Xst:1294 - Latch <Comp/ALU/out_5> is equivalent to a wire in block <top>.
+WARNING:Xst:1294 - Latch <Comp/ALU/out_6> is equivalent to a wire in block <top>.
+WARNING:Xst:1294 - Latch <Comp/ALU/out_7> is equivalent to a wire in block <top>.
+WARNING:Xst:1294 - Latch <Comp/CU/sMuxA> is equivalent to a wire in block <top>.
+WARNING:Xst:1293 - FF/Latch <Comp/regA/out_7> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1426 - The value init of the FF/Latch Comp/regA/out_4 hinder the constant cleaning in the block top.
+   You should achieve better results by setting this init to 0.
+WARNING:Xst:1426 - The value init of the FF/Latch Comp/regA/out_3 hinder the constant cleaning in the block top.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1426 - The value init of the FF/Latch Comp/regA/out_2 hinder the constant cleaning in the block top.
+   You should achieve better results by setting this init to 0.
+WARNING:Xst:1426 - The value init of the FF/Latch Comp/regA/out_1 hinder the constant cleaning in the block top.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1426 - The value init of the FF/Latch Comp/regA/out_0 hinder the constant cleaning in the block top.
+   You should achieve better results by setting this init to 0.
+WARNING:Xst:1293 - FF/Latch <Comp/regA/out_5> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Comp/regA/out_6> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <Comp/regA/out_0> in Unit <top> is equivalent to the following 2 FFs/Latches, which will be removed : <Comp/regA/out_2> <Comp/regA/out_4> 
+INFO:Xst:2261 - The FF/Latch <Comp/regA/out_1> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <Comp/regA/out_3> 
 Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 0.
 
 Final Macro Processing ...
@@ -303,8 +402,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 16
- Flip-Flops                                            : 16
+# Registers                                            : 10
+ Flip-Flops                                            : 10
 
 =========================================================================
 
@@ -333,20 +432,17 @@ Design Statistics
 # IOs                              : 9
 
 Cell Usage :
-# BELS                             : 64
+# BELS                             : 28
 #      GND                         : 1
 #      INV                         : 1
 #      LUT1                        : 7
-#      LUT2                        : 6
-#      LUT3                        : 4
-#      LUT4                        : 11
-#      LUT4_D                      : 2
-#      LUT4_L                      : 1
-#      MUXCY                       : 14
+#      LUT2                        : 1
+#      LUT4                        : 2
+#      MUXCY                       : 7
 #      VCC                         : 1
-#      XORCY                       : 16
-# FlipFlops/Latches                : 16
-#      FDE                         : 8
+#      XORCY                       : 8
+# FlipFlops/Latches                : 10
+#      FDE                         : 2
 #      FDR                         : 8
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
@@ -359,9 +455,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       17  out of   4656     0%  
- Number of Slice Flip Flops:             16  out of   9312     0%  
- Number of 4 input LUTs:                 32  out of   9312     0%  
+ Number of Slices:                        8  out of   4656     0%  
+ Number of Slice Flip Flops:             10  out of   9312     0%  
+ Number of 4 input LUTs:                 11  out of   9312     0%  
  Number of IOs:                           9
  Number of bonded IOBs:                   9  out of    232     3%  
  Number of GCLKs:                         1  out of     24     4%  
@@ -387,7 +483,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-sw                                 | BUFGP                  | 16    |
+sw                                 | BUFGP                  | 10    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -398,7 +494,7 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 6.913ns (Maximum Frequency: 144.655MHz)
+   Minimum period: 4.824ns (Maximum Frequency: 207.297MHz)
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: 4.394ns
    Maximum combinational path delay: No path found
@@ -409,51 +505,42 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sw'
-  Clock period: 6.913ns (frequency: 144.655MHz)
-  Total number of paths / destination ports: 484 / 32
+  Clock period: 4.824ns (frequency: 207.297MHz)
+  Total number of paths / destination ports: 104 / 18
 -------------------------------------------------------------------------
-Delay:               6.913ns (Levels of Logic = 11)
-  Source:            Comp/PC/pcc_1 (FF)
-  Destination:       Comp/regA/out_7 (FF)
+Delay:               4.824ns (Levels of Logic = 2)
+  Source:            Comp/PC/pcc_2 (FF)
+  Destination:       Comp/PC/pcc_7 (FF)
   Source Clock:      sw rising
   Destination Clock: sw rising
 
-  Data Path: Comp/PC/pcc_1 to Comp/regA/out_7
+  Data Path: Comp/PC/pcc_2 to Comp/PC/pcc_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              6   0.591   0.844  Comp/PC/pcc_1 (Comp/PC/pcc_1)
-     LUT4_D:I0->O         11   0.704   1.012  Comp/im/Mrom__COND_211 (Comp/im/Mrom__COND_2)
-     LUT3:I1->O            1   0.704   0.000  Comp/ALU/Maddsub_out_addsub0000_lut<0> (Comp/ALU/Maddsub_out_addsub0000_lut<0>)
-     MUXCY:S->O            1   0.464   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<0> (Comp/ALU/Maddsub_out_addsub0000_cy<0>)
-     MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<1> (Comp/ALU/Maddsub_out_addsub0000_cy<1>)
-     MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<2> (Comp/ALU/Maddsub_out_addsub0000_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<3> (Comp/ALU/Maddsub_out_addsub0000_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<4> (Comp/ALU/Maddsub_out_addsub0000_cy<4>)
-     MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<5> (Comp/ALU/Maddsub_out_addsub0000_cy<5>)
-     MUXCY:CI->O           0   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<6> (Comp/ALU/Maddsub_out_addsub0000_cy<6>)
-     XORCY:CI->O           1   0.804   0.424  Comp/ALU/Maddsub_out_addsub0000_xor<7> (Comp/ALU/out_addsub0000<7>)
-     LUT4:I3->O            1   0.704   0.000  Comp/ALU/out_mux0001<7>1 (Comp/alu_out_bus<7>)
-     FDE:D                     0.308          Comp/regA/out_7
+     FDR:C->Q              2   0.591   0.622  Comp/PC/pcc_2 (Comp/PC/pcc_2)
+     LUT2:I0->O            3   0.704   0.535  Comp/PC/pcc_cmp_eq000011 (Comp/im/Mrom__COND_25)
+     LUT4:I3->O            8   0.704   0.757  Comp/PC/pcc_cmp_eq0000 (Comp/PC/pcc_cmp_eq0000)
+     FDR:R                     0.911          Comp/PC/pcc_0
     ----------------------------------------
-    Total                      6.913ns (4.633ns logic, 2.280ns route)
-                                       (67.0% logic, 33.0% route)
+    Total                      4.824ns (2.910ns logic, 1.914ns route)
+                                       (60.3% logic, 39.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'sw'
-  Total number of paths / destination ports: 8 / 8
+  Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
 Offset:              4.394ns (Levels of Logic = 1)
-  Source:            Comp/regA/out_7 (FF)
-  Destination:       Led<7> (PAD)
+  Source:            Comp/regA/out_0 (FF)
+  Destination:       Led<4> (PAD)
   Source Clock:      sw rising
 
-  Data Path: Comp/regA/out_7 to Led<7>
+  Data Path: Comp/regA/out_0 to Led<4>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              3   0.591   0.531  Comp/regA/out_7 (Comp/regA/out_7)
-     OBUF:I->O                 3.272          Led_7_OBUF (Led<7>)
+     FDE:C->Q              3   0.591   0.531  Comp/regA/out_0 (Comp/regA/out_0)
+     OBUF:I->O                 3.272          Led_0_OBUF (Led<0>)
     ----------------------------------------
     Total                      4.394ns (3.863ns logic, 0.531ns route)
                                        (87.9% logic, 12.1% route)
@@ -462,13 +549,13 @@ Offset:              4.394ns (Levels of Logic = 1)
 
 
 Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 2.99 secs
+Total CPU time to Xst completion: 3.26 secs
  
 --> 
 
-Total memory usage is 266940 kilobytes
+Total memory usage is 269756 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   21 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :   53 (   0 filtered)
+Number of infos    :   10 (   0 filtered)
 
