@@ -1,39 +1,43 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
+// Company: 
+// Engineer: 
+// 
+// Create Date:    21:13:53 09/04/2018 
+// Design Name: 
+// Module Name:    ALU 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
 //
-// Create Date:    15:01:22 08/29/2018
-// Design Name:
-// Module Name:    alu
-// Project Name:
-// Target Devices:
-// Tool versions:
-// Description:
+// Dependencies: 
 //
-// Dependencies:
-//
-// Revision:
+// Revision: 
 // Revision 0.01 - File Created
-// Additional Comments:
+// Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module alu(a, b, s, out);
-  input  [7:0] a, b;
-  input  [2:0] s;
-  output [7:0] out;
+module ALU(regA, regB, S, M);
+	input [7:0] regA, regB;
+	input [2:0] S;
+	output [7:0] M;
+	
+	wire [7:0] regA, regB;
+	wire [2:0] S;
+	reg [7:0] M;
+	
+	always begin
+		case (S)
+			3'b000: M <= regA + regB;
+			3'b001: M <= regA - regB;
+			3'b010: M <= regA && regB;
+			3'b011: M <= regA || regB;
+			3'b100: M <= ~regA;
+			3'b101: M <= regA ^ regB;
+			3'b110: M <= regA << 1;
+			3'b111: M <= regA >> 1;
+		endcase
+	end
 
-  wire [7:0] a, b;
-  wire [2:0] s;
-  reg [7:0] out;
-
-  always @(a, b, s) begin
-	case(s)
-		3'b000: out = a + b;
-		3'b001: out = a - b;
-		3'b010: out = a & b;
-		3'b011: out = a | b;
-
-	endcase
-  end
 endmodule
