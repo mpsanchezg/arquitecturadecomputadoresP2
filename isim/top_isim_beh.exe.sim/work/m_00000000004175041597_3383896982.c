@@ -24,7 +24,7 @@
 static const char *ng0 = "D:/Universidad/Universidad/Anos/Cuarto_Ano/Octavo_Semestre/Arquitectura de Computadores/Proyecto 2/Meta2.1/pc.v";
 static int ng1[] = {0, 0};
 static int ng2[] = {1, 0};
-static int ng3[] = {2, 0};
+static int ng3[] = {5, 0};
 
 
 

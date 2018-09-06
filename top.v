@@ -90,7 +90,7 @@ module computer(sw, Led, seg, an, clk);
 	.b(out_muxB),
 	.s(out_cu_sAlu),
 	.out(alu_out_bus));
-  BCD bcd(.binary(regA_out_bus),
+  BCD bcd(.binary(alu_out_bus),
 	.hundreds(bcd_out3),
 	.tens(bcd_out2),
 	.ones(bcd_out1));
@@ -102,7 +102,7 @@ module computer(sw, Led, seg, an, clk);
 	.seg(seg_out3));
 	
   
-  assign Led = regA_out_bus; 
+  assign Led = alu_out_bus; 
   integer i;
   initial begin
 	i = 0;

@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.77 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.77 secs
  
 --> Reading design: top.prj
 
@@ -215,9 +215,9 @@ Unit <pc> synthesized.
 
 Synthesizing Unit <instruction_memory>.
     Related source file is "../Meta2.0/instruction_memory.v".
-WARNING:Xst:647 - Input <address<7:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <address<7:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:1781 - Signal <mem> is used but never assigned. Tied to default value.
-    Found 25x13-bit ROM for signal <$COND_1>.
+    Found 5x13-bit ROM for signal <$COND_1>.
     Summary:
 	inferred   1 ROM(s).
 Unit <instruction_memory> synthesized.
@@ -326,8 +326,8 @@ HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 5
  16x7-bit ROM                                          : 3
- 25x13-bit ROM                                         : 1
  32x4-bit ROM                                          : 1
+ 5x13-bit ROM                                          : 1
 # Adders/Subtractors                                   : 8
  4-bit adder                                           : 7
  8-bit addsub                                          : 1
@@ -359,8 +359,8 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 5
  16x7-bit ROM                                          : 3
- 25x13-bit ROM                                         : 1
  32x4-bit ROM                                          : 1
+ 5x13-bit ROM                                          : 1
 # Adders/Subtractors                                   : 8
  4-bit adder                                           : 7
  8-bit addsub                                          : 1
@@ -426,10 +426,9 @@ Optimizing unit <computer> ...
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 1.
-FlipFlop Comp/PC/pcc_0 has been replicated 1 time(s)
-FlipFlop Comp/PC/pcc_2 has been replicated 1 time(s)
-FlipFlop Comp/PC/pcc_3 has been replicated 1 time(s)
-FlipFlop Comp/PC/pcc_4 has been replicated 1 time(s)
+FlipFlop Comp/PC/pcc_0 has been replicated 3 time(s)
+FlipFlop Comp/PC/pcc_1 has been replicated 3 time(s)
+FlipFlop Comp/PC/pcc_2 has been replicated 3 time(s)
 
 Final Macro Processing ...
 
@@ -437,8 +436,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 43
- Flip-Flops                                            : 43
+# Registers                                            : 48
+ Flip-Flops                                            : 48
 
 =========================================================================
 
@@ -467,25 +466,26 @@ Design Statistics
 # IOs                              : 21
 
 Cell Usage :
-# BELS                             : 242
+# BELS                             : 219
 #      GND                         : 1
-#      INV                         : 2
+#      INV                         : 3
 #      LUT1                        : 10
-#      LUT2                        : 11
-#      LUT2_L                      : 1
-#      LUT3                        : 20
-#      LUT3_D                      : 5
-#      LUT4                        : 115
-#      LUT4_D                      : 6
+#      LUT2                        : 4
+#      LUT3                        : 56
+#      LUT3_D                      : 7
+#      LUT3_L                      : 1
+#      LUT4                        : 71
+#      LUT4_D                      : 2
+#      LUT4_L                      : 4
 #      MUXCY                       : 17
-#      MUXF5                       : 32
+#      MUXF5                       : 21
 #      MUXF6                       : 1
 #      VCC                         : 1
 #      XORCY                       : 20
-# FlipFlops/Latches                : 43
+# FlipFlops/Latches                : 48
 #      FD                          : 8
 #      FDE                         : 8
-#      FDR                         : 20
+#      FDR                         : 25
 #      FDS                         : 7
 # Clock Buffers                    : 2
 #      BUFGP                       : 2
@@ -498,9 +498,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       89  out of   4656     1%  
- Number of Slice Flip Flops:             43  out of   9312     0%  
- Number of 4 input LUTs:                170  out of   9312     1%  
+ Number of Slices:                       82  out of   4656     1%  
+ Number of Slice Flip Flops:             48  out of   9312     0%  
+ Number of 4 input LUTs:                158  out of   9312     1%  
  Number of IOs:                          21
  Number of bonded IOBs:                  21  out of    232     9%  
  Number of GCLKs:                         2  out of     24     8%  
@@ -526,7 +526,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-sw                                 | BUFGP                  | 28    |
+sw                                 | BUFGP                  | 33    |
 clk                                | BUFGP                  | 15    |
 -----------------------------------+------------------------+-------+
 
@@ -538,9 +538,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 9.739ns (Maximum Frequency: 102.680MHz)
+   Minimum period: 7.507ns (Maximum Frequency: 133.209MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 5.065ns
+   Maximum output required time after clock: 10.960ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -549,63 +549,55 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sw'
-  Clock period: 9.739ns (frequency: 102.680MHz)
-  Total number of paths / destination ports: 4935 / 56
+  Clock period: 7.507ns (frequency: 133.209MHz)
+  Total number of paths / destination ports: 1708 / 66
 -------------------------------------------------------------------------
-Delay:               9.739ns (Levels of Logic = 14)
-  Source:            Comp/PC/pcc_1 (FF)
-  Destination:       Comp/regB/out_7 (FF)
+Delay:               7.507ns (Levels of Logic = 6)
+  Source:            Comp/PC/pcc_1_2 (FF)
+  Destination:       Comp/regB/out_0 (FF)
   Source Clock:      sw rising
   Destination Clock: sw rising
 
-  Data Path: Comp/PC/pcc_1 to Comp/regB/out_7
+  Data Path: Comp/PC/pcc_1_2 to Comp/regB/out_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             19   0.591   1.260  Comp/PC/pcc_1 (Comp/PC/pcc_1)
-     LUT3_D:I0->LO         1   0.704   0.135  Comp/CU/Mrom_address_rom0000131 (N196)
-     LUT3:I2->O           10   0.704   0.961  Comp/im/Mrom__COND_1121 (Comp/im/Mrom__COND_112)
-     LUT3:I1->O            3   0.704   0.566  Comp/ALU/out_mux00002 (Comp/ALU/out_mux0000)
-     LUT3:I2->O            1   0.704   0.000  Comp/ALU/Maddsub_out_addsub0000_lut<0> (Comp/ALU/Maddsub_out_addsub0000_lut<0>)
-     MUXCY:S->O            1   0.464   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<0> (Comp/ALU/Maddsub_out_addsub0000_cy<0>)
-     MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<1> (Comp/ALU/Maddsub_out_addsub0000_cy<1>)
-     MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<2> (Comp/ALU/Maddsub_out_addsub0000_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<3> (Comp/ALU/Maddsub_out_addsub0000_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<4> (Comp/ALU/Maddsub_out_addsub0000_cy<4>)
-     MUXCY:CI->O           1   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<5> (Comp/ALU/Maddsub_out_addsub0000_cy<5>)
-     MUXCY:CI->O           0   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<6> (Comp/ALU/Maddsub_out_addsub0000_cy<6>)
-     XORCY:CI->O           1   0.804   0.455  Comp/ALU/Maddsub_out_addsub0000_xor<7> (Comp/ALU/out_addsub0000<7>)
-     LUT3:I2->O            1   0.704   0.000  Comp/ALU/Mmux_out_47 (Comp/ALU/Mmux_out_47)
-     MUXF5:I0->O           2   0.321   0.000  Comp/ALU/Mmux_out_2_f5_6 (Comp/alu_out_bus<7>)
-     FDE:D                     0.308          Comp/regA/out_7
+     FDR:C->Q              3   0.591   0.610  Comp/PC/pcc_1_2 (Comp/PC/pcc_1_2)
+     LUT4:I1->O            2   0.704   0.622  Comp/MuxB/Mmux_out11 (Comp/MuxB/Mmux_out)
+     LUT3:I0->O            1   0.704   0.000  Comp/ALU/Maddsub_out_addsub0000_lut<0> (Comp/ALU/Maddsub_out_addsub0000_lut<0>)
+     XORCY:LI->O           1   0.527   0.424  Comp/ALU/Maddsub_out_addsub0000_xor<0> (Comp/ALU/out_addsub0000<0>)
+     LUT4:I3->O            1   0.704   0.000  Comp/ALU/Mmux_out_2_f5_F (N83)
+     MUXF5:I0->O           8   0.321   0.757  Comp/ALU/Mmux_out_2_f5 (Comp/ALU/out<0>1)
+     INV:I->O              3   0.704   0.531  Comp/ALU/out<0>_inv1_INV_0 (Led_0_OBUF)
+     FDE:D                     0.308          Comp/regA/out_0
     ----------------------------------------
-    Total                      9.739ns (6.362ns logic, 3.377ns route)
-                                       (65.3% logic, 34.7% route)
+    Total                      7.507ns (4.563ns logic, 2.944ns route)
+                                       (60.8% logic, 39.2% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 5.587ns (frequency: 178.987MHz)
-  Total number of paths / destination ports: 126 / 22
+  Clock period: 6.021ns (frequency: 166.085MHz)
+  Total number of paths / destination ports: 122 / 22
 -------------------------------------------------------------------------
-Delay:               5.587ns (Levels of Logic = 4)
-  Source:            Comp/i_2 (FF)
-  Destination:       Comp/seg_2 (FF)
+Delay:               6.021ns (Levels of Logic = 4)
+  Source:            Comp/i_1 (FF)
+  Destination:       Comp/seg_5 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: Comp/i_2 to Comp/seg_2
+  Data Path: Comp/i_1 to Comp/seg_5
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               9   0.591   0.995  Comp/i_2 (Comp/i_2)
-     LUT4:I0->O            8   0.704   0.761  Comp/an_mux0000<3>1 (Comp/an_mux0000<3>)
-     LUT4:I3->O            1   0.704   0.000  Comp/seg_mux0000<2>351 (Comp/seg_mux0000<2>351)
-     MUXF5:I0->O           1   0.321   0.499  Comp/seg_mux0000<2>35_f5 (Comp/seg_mux0000<2>35)
-     LUT3:I1->O            1   0.704   0.000  Comp/seg_mux0000<2>751 (Comp/seg_mux0000<2>75)
-     FDS:D                     0.308          Comp/seg_2
+     FD:C->Q              14   0.591   1.035  Comp/i_1 (Comp/i_1)
+     LUT4:I2->O            7   0.704   0.743  Comp/an_mux0000<2>1 (Comp/an_mux0000<2>)
+     LUT3:I2->O            1   0.704   0.424  Comp/seg_mux0000<5>42 (Comp/seg_mux0000<5>42)
+     LUT4_L:I3->LO         1   0.704   0.104  Comp/seg_mux0000<5>1091_SW0 (N57)
+     LUT4:I3->O            1   0.704   0.000  Comp/seg_mux0000<5>1091 (Comp/seg_mux0000<5>109)
+     FDS:D                     0.308          Comp/seg_5
     ----------------------------------------
-    Total                      5.587ns (3.332ns logic, 2.255ns route)
-                                       (59.6% logic, 40.4% route)
+    Total                      6.021ns (3.715ns logic, 2.306ns route)
+                                       (61.7% logic, 38.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -628,32 +620,39 @@ Offset:              4.310ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'sw'
-  Total number of paths / destination ports: 8 / 8
+  Total number of paths / destination ports: 735 / 8
 -------------------------------------------------------------------------
-Offset:              5.065ns (Levels of Logic = 1)
-  Source:            Comp/regA/out_3 (FF)
-  Destination:       Led<3> (PAD)
+Offset:              10.960ns (Levels of Logic = 8)
+  Source:            Comp/PC/pcc_1_1 (FF)
+  Destination:       Led<7> (PAD)
   Source Clock:      sw rising
 
-  Data Path: Comp/regA/out_3 to Led<3>
+  Data Path: Comp/PC/pcc_1_1 to Led<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             23   0.591   1.202  Comp/regA/out_3 (Comp/regA/out_3)
-     OBUF:I->O                 3.272          Led_3_OBUF (Led<3>)
+     FDR:C->Q              2   0.591   0.622  Comp/PC/pcc_1_1 (Comp/PC/pcc_1_1)
+     LUT3:I0->O           18   0.704   1.243  Comp/CU/Mrom_address_rom0000111 (Comp/ALU/out_mux0000)
+     LUT3:I0->O            1   0.704   0.000  Comp/ALU/Maddsub_out_addsub0000_lut<5> (Comp/ALU/Maddsub_out_addsub0000_lut<5>)
+     MUXCY:S->O            1   0.464   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<5> (Comp/ALU/Maddsub_out_addsub0000_cy<5>)
+     MUXCY:CI->O           0   0.059   0.000  Comp/ALU/Maddsub_out_addsub0000_cy<6> (Comp/ALU/Maddsub_out_addsub0000_cy<6>)
+     XORCY:CI->O           1   0.804   0.455  Comp/ALU/Maddsub_out_addsub0000_xor<7> (Comp/ALU/out_addsub0000<7>)
+     LUT3:I2->O            1   0.704   0.000  Comp/ALU/Mmux_out_47 (Comp/ALU/Mmux_out_47)
+     MUXF5:I0->O          15   0.321   1.017  Comp/ALU/Mmux_out_2_f5_6 (Led_7_OBUF)
+     OBUF:I->O                 3.272          Led_7_OBUF (Led<7>)
     ----------------------------------------
-    Total                      5.065ns (3.863ns logic, 1.202ns route)
-                                       (76.3% logic, 23.7% route)
+    Total                     10.960ns (7.623ns logic, 3.337ns route)
+                                       (69.6% logic, 30.4% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.28 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.90 secs
  
 --> 
 
-Total memory usage is 271548 kilobytes
+Total memory usage is 271036 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   32 (   0 filtered)

@@ -22,7 +22,7 @@
 #define alloca _alloca
 #endif
 static const char *ng0 = "D:/Universidad/Universidad/Anos/Cuarto_Ano/Octavo_Semestre/Arquitectura de Computadores/Proyecto 2/Meta2.1/register_a.v";
-static unsigned int ng1[] = {21U, 0U};
+static unsigned int ng1[] = {0U, 0U};
 
 
 

@@ -29,6 +29,6 @@ module Mux_a(A, s, out);
 		case(s)
 			'b0: out <= A;
 			'b1: out <= 'b00000000;
-			default: out <= 0;
+			default: out <= A;
 		endcase
 endmodule

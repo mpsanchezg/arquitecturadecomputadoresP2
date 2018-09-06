@@ -22,7 +22,7 @@
 #define alloca _alloca
 #endif
 static const char *ng0 = "D:/Universidad/Universidad/Anos/Cuarto_Ano/Octavo_Semestre/Arquitectura de Computadores/Proyecto 2/Meta2.0/register_b.v";
-static int ng1[] = {10, 0};
+static unsigned int ng1[] = {0U, 0U};
 
 
 
@@ -85,7 +85,13 @@ LAB5:    xsi_set_current_line(35, ng0);
     if (t10 > 0)
         goto LAB6;
 
-LAB7:
+LAB7:    xsi_set_current_line(38, ng0);
+
+LAB10:    xsi_set_current_line(39, ng0);
+    t2 = ((char*)((ng1)));
+    t3 = (t0 + 1012);
+    xsi_vlogvar_wait_assign_value(t3, t2, 0, 0, 8, 0LL);
+
 LAB8:    goto LAB2;
 
 LAB6:    xsi_set_current_line(35, ng0);
