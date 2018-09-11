@@ -18,10 +18,10 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Mux_b(B, Im, s, out);
-	input  [7:0]    B, Im;
-	input  [1:0]        s;
-	output [7:0]      out;
+module Mux_b(B, Im, dataDM, s, out);
+	input  [7:0] B, Im, dataDM;
+	input  [1:0]             s;
+	output [7:0]           out;
 	
 	reg [7:0] out;
 	
@@ -30,6 +30,7 @@ module Mux_b(B, Im, s, out);
 			'b00: out <= B;
 			'b01: out <= Im;
 			'b10: out <= 'b00000000;
+			'b11: out <= dataDM;
 			default: out <= B;
 		endcase
 

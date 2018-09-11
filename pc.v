@@ -18,8 +18,10 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module pc(clk, pcc);
-  input clk;
+module pc(clk, dataIM, l, pcc);
+  input          clk;
+  input [7:0] dataIM;
+  input            l;
   output [7:0] pcc;
 
   reg [7:0] pcc;
@@ -31,9 +33,12 @@ module pc(clk, pcc);
 
   always @(posedge clk) begin
 	pcc <= pcc + 1;
-	if (pcc == 4) begin
+	if (l == 1'b1)
+		pcc <= dataIM;
+	if (pcc == 24) begin
 		pcc <= 0;
 	end
+	
   end
 endmodule
 

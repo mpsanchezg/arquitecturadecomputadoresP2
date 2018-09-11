@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    19:23:26 09/04/2018 
+// Create Date:    18:10:47 09/11/2018 
 // Design Name: 
-// Module Name:    Mux_a 
+// Module Name:    mux_data 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,19 +18,19 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Mux_a(A, B, s, out);
-	input [7:0] A, B;
-	input [1:0]    s;
-	output [7:0] out;
+module mux_data(dataIM, dataRegB, s, dataOut);
+	input [7:0]   dataIM;
+	input [7:0] dataRegB;
+	input              s;
 	
-	reg [7:0] out;
+	output [7:0] dataOut;
 	
-	always @(s, A, B)
+	reg [7:0] dataOut;
+	
+	always @(s, dataIM, dataRegB)
 		case(s)
-			'b00: out <=          A;
-			'b00: out <= 'b11111111;
-			'b10: out <= 'b00000000;
-			'b11: out <=          B;
-			default: out <= A;
+			'b0: dataOut     <=   dataIM;
+			'b1: dataOut     <= dataRegB;
+			default: dataOut <=   dataIM;
 		endcase
 endmodule

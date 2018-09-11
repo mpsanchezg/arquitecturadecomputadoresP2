@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    19:23:26 09/04/2018 
+// Create Date:    19:18:38 09/11/2018 
 // Design Name: 
-// Module Name:    Mux_a 
+// Module Name:    register_status 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,19 +18,21 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Mux_a(A, B, s, out);
-	input [7:0] A, B;
-	input [1:0]    s;
-	output [7:0] out;
-	
-	reg [7:0] out;
-	
-	always @(s, A, B)
-		case(s)
-			'b00: out <=          A;
-			'b00: out <= 'b11111111;
-			'b10: out <= 'b00000000;
-			'b11: out <=          B;
-			default: out <= A;
-		endcase
+module register_status(clk, z,n,c,v, out);
+  input   clk, z, n, c, v;
+  output [3:0]        out;
+
+  wire  clk, load;
+  wire [3:0] data;
+  reg  [3:0]  out;
+
+  initial begin
+	out = 4'b0000;
+  end
+
+  always @(posedge clk) begin
+	 if (load) begin
+		out <= data;
+	 end
+  end
 endmodule

@@ -44,17 +44,17 @@ Clock clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-an<0>       |    8.064(R)|clk_BUFGP         |   0.000|
-an<1>       |    8.841(R)|clk_BUFGP         |   0.000|
-an<2>       |    8.159(R)|clk_BUFGP         |   0.000|
-an<3>       |    8.120(R)|clk_BUFGP         |   0.000|
-seg<0>      |    8.915(R)|clk_BUFGP         |   0.000|
-seg<1>      |    7.841(R)|clk_BUFGP         |   0.000|
-seg<2>      |    8.144(R)|clk_BUFGP         |   0.000|
-seg<3>      |    8.659(R)|clk_BUFGP         |   0.000|
-seg<4>      |    7.879(R)|clk_BUFGP         |   0.000|
-seg<5>      |    9.196(R)|clk_BUFGP         |   0.000|
-seg<6>      |    8.031(R)|clk_BUFGP         |   0.000|
+an<0>       |    7.496(R)|clk_BUFGP         |   0.000|
+an<1>       |    8.525(R)|clk_BUFGP         |   0.000|
+an<2>       |    7.854(R)|clk_BUFGP         |   0.000|
+an<3>       |    8.026(R)|clk_BUFGP         |   0.000|
+seg<0>      |    8.757(R)|clk_BUFGP         |   0.000|
+seg<1>      |    7.200(R)|clk_BUFGP         |   0.000|
+seg<2>      |    8.286(R)|clk_BUFGP         |   0.000|
+seg<3>      |    8.090(R)|clk_BUFGP         |   0.000|
+seg<4>      |    7.961(R)|clk_BUFGP         |   0.000|
+seg<5>      |    8.455(R)|clk_BUFGP         |   0.000|
+seg<6>      |    7.998(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
 Clock sw to Pad
@@ -62,14 +62,14 @@ Clock sw to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-Led<0>      |   15.964(R)|sw_BUFGP          |   0.000|
-Led<1>      |   15.048(R)|sw_BUFGP          |   0.000|
-Led<2>      |   15.669(R)|sw_BUFGP          |   0.000|
-Led<3>      |   17.237(R)|sw_BUFGP          |   0.000|
-Led<4>      |   16.041(R)|sw_BUFGP          |   0.000|
-Led<5>      |   17.917(R)|sw_BUFGP          |   0.000|
-Led<6>      |   16.511(R)|sw_BUFGP          |   0.000|
-Led<7>      |   17.772(R)|sw_BUFGP          |   0.000|
+Led<0>      |   14.160(R)|sw_BUFGP          |   0.000|
+Led<1>      |   14.523(R)|sw_BUFGP          |   0.000|
+Led<2>      |   16.282(R)|sw_BUFGP          |   0.000|
+Led<3>      |   15.934(R)|sw_BUFGP          |   0.000|
+Led<4>      |   16.007(R)|sw_BUFGP          |   0.000|
+Led<5>      |   16.345(R)|sw_BUFGP          |   0.000|
+Led<6>      |   16.572(R)|sw_BUFGP          |   0.000|
+Led<7>      |   17.580(R)|sw_BUFGP          |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk
@@ -77,8 +77,8 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.474|         |         |         |
-sw             |   20.353|         |         |         |
+clk            |    4.915|         |         |         |
+sw             |   21.322|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock sw
@@ -86,11 +86,11 @@ Clock to Setup on destination clock sw
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-sw             |    7.196|         |         |         |
+sw             |    7.122|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Thu Sep 06 11:31:31 2018 
+Analysis completed Tue Sep 11 20:19:54 2018 
 --------------------------------------------------------------------------------
 
 Trace Settings:

@@ -9,23 +9,23 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Thu Sep 06 11:31:12 2018
+Mapped Date    : Tue Sep 11 20:19:40 2018
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    0
 Logic Utilization:
-  Number of Slice Flip Flops:            48 out of   9,312    1%
-  Number of 4 input LUTs:               147 out of   9,312    1%
+  Number of Slice Flip Flops:            39 out of   9,312    1%
+  Number of 4 input LUTs:               111 out of   9,312    1%
 Logic Distribution:
-  Number of occupied Slices:             94 out of   4,656    2%
-    Number of Slices containing only related logic:      94 out of      94 100%
-    Number of Slices containing unrelated logic:          0 out of      94   0%
+  Number of occupied Slices:             67 out of   4,656    1%
+    Number of Slices containing only related logic:      67 out of      67 100%
+    Number of Slices containing unrelated logic:          0 out of      67   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         157 out of   9,312    1%
-    Number used as logic:               147
-    Number used as a route-thru:         10
+  Total Number of 4 input LUTs:         122 out of   9,312    1%
+    Number used as logic:               111
+    Number used as a route-thru:         11
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
@@ -33,10 +33,10 @@ Logic Distribution:
   Number of bonded IOBs:                 21 out of     232    9%
   Number of BUFGMUXs:                     2 out of      24    8%
 
-Average Fanout of Non-Clock Nets:                3.60
+Average Fanout of Non-Clock Nets:                3.46
 
 Peak Memory Usage:  255 MB
-Total REAL time to MAP completion:  2 secs 
+Total REAL time to MAP completion:  1 secs 
 Total CPU time to MAP completion:   1 secs 
 
 NOTES:
@@ -88,10 +88,38 @@ INFO:LIT:244 - All of the single ended outputs in this design are using slew
 
 Section 4 - Removed Logic Summary
 ---------------------------------
+  10 block(s) removed
    2 block(s) optimized away
+  10 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "Comp/ALU/Mmux_temp_3_f55" is unused and has been removed.
+ Unused block "Comp/ALU/Mmux_temp_3_f5_4" (MUX) removed.
+  The signal "Comp/ALU/Mmux_temp_510" is unused and has been removed.
+   Unused block "Comp/ALU/Mmux_temp_510" (ROM) removed.
+    The signal "Comp/out_muxB<6>" is unused and has been removed.
+     Unused block "Comp/MuxB/Mmux_out91" (ROM) removed.
+  The signal "Comp/ALU/Mmux_temp_3_f5_4_rt" is unused and has been removed.
+   Unused block "Comp/ALU/Mmux_temp_3_f5_4_rt" (ROM) removed.
+The signal "Comp/ALU/Mmux_temp_3_f56" is unused and has been removed.
+ Unused block "Comp/ALU/Mmux_temp_3_f5_5" (MUX) removed.
+  The signal "Comp/ALU/Mmux_temp_512" is unused and has been removed.
+   Unused block "Comp/ALU/Mmux_temp_512" (ROM) removed.
+    The signal "Comp/out_muxB<7>" is unused and has been removed.
+     Unused block "Comp/MuxB/Mmux_out101" (ROM) removed.
+  The signal "Comp/ALU/Mmux_temp_3_f5_5_rt" is unused and has been removed.
+   Unused block "Comp/ALU/Mmux_temp_3_f5_5_rt" (ROM) removed.
+The signal "Comp/ALU/Mmux_temp_511" is unused and has been removed.
+ Unused block "Comp/ALU/Mmux_temp_511" (ROM) removed.
+The signal "Comp/ALU/Mmux_temp_513" is unused and has been removed.
+ Unused block "Comp/ALU/Mmux_temp_513" (ROM) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
