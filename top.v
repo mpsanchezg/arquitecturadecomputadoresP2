@@ -31,8 +31,9 @@ module top(sw, Led, seg, an, clk);
 	 .an(an),
 	 .clk(clk));
 endmodule
-
+// FALTA COMPLETAR EL CU Y LA ALU!!!!!!! >=(
 module computer(sw, Led, seg, an, clk);
+  
   input sw;
   input clk;
   output [7:0] Led;
@@ -74,7 +75,7 @@ module computer(sw, Led, seg, an, clk);
 	.pcc(pc_out_bus));
   instruction_memory im(.address(pc_out_bus),
 	.out(im_out_bus));
-	control_unit CU(.address(im_out_bus[14:8]), // Control Unit
+  control_unit CU(.address(im_out_bus[14:8]), // Control Unit
 	.dataRegS(regS_out_bus),
 	.lRegB(out_cu_lregB),
 	.lRegA(out_cu_lregA),
@@ -115,15 +116,15 @@ module computer(sw, Led, seg, an, clk);
 	.w(out_cu_wDM),
 	.dataOut(dm_out_bus));
   mux_data muxD(.dataIM(im_out_bus[7:0]),       // mux_data(dataIM, dataRegB, s, dataOut);
-    .dataRegB(regB_out_bus),
-    .s(out_cu_sMuxD),
-    .dataOut(out_muxD));     
+   .dataRegB(regB_out_bus),
+   .s(out_cu_sMuxD),
+   .dataOut(out_muxD));     
   register_status regS(.clk(sw),               // register_status(clk, z, n, c, v, out);
-    .z(z),
-	 .n(n),
-	 .c(c),
-	 .v(v),
-	 .out(regS_out_bus));      
+   .z(z),
+	.n(n),
+	.c(c),
+	.v(v),
+	.out(regS_out_bus));      
   BCD bcd(.binary(alu_out_bus),
 	.hundreds(bcd_out3),
 	.tens(bcd_out2),
@@ -135,14 +136,11 @@ module computer(sw, Led, seg, an, clk);
   segment7 seg3(.bcd(bcd_out3),
 	.seg(seg_out3));
   
-  
   assign Led = alu_out_bus; 
   integer i;
   initial begin
 	i = 0;
   end
-  
-  
   
   always @(posedge clk) begin
 	i <= i+1;

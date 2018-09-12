@@ -18,21 +18,19 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module register_status(clk, z,n,c,v, out);
+module register_status(clk, z, n, c, v, out);
   input   clk, z, n, c, v;
   output [3:0]        out;
-
-  wire  clk, load;
-  wire [3:0] data;
+	
+  wire  clk, z, n, c, v;
+  reg [3:0] data;
   reg  [3:0]  out;
 
   initial begin
 	out = 4'b0000;
   end
-
   always @(posedge clk) begin
-	 if (load) begin
-		out <= data;
-	 end
+	 data = {z,n,c,v};
+	 out <= data;
   end
 endmodule

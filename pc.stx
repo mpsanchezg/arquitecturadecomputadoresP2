@@ -4,32 +4,32 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to D:/Universidad/Universidad/Anos/Cuarto_Ano/Octavo_Semestre/Arquitectura de Computadores/Proyecto 2/Meta2.1/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
 
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling verilog file "control_unit.v" in library work
-Module <control_unit> compiled
+Compiling verilog file "pc.v" in library work
+Module <pc> compiled
 No errors in compilation
-Analysis of file <"control_unit.prj"> succeeded.
+Analysis of file <"pc.prj"> succeeded.
  
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 
-Total memory usage is 250992 kilobytes
+Total memory usage is 250608 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    1 (   0 filtered)

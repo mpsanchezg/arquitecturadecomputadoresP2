@@ -28,7 +28,7 @@ module Mux_a(A, B, s, out);
 	always @(s, A, B)
 		case(s)
 			'b00: out <=          A;
-			'b00: out <= 'b11111111;
+			'b01: out <= 'b00000001;
 			'b10: out <= 'b00000000;
 			'b11: out <=          B;
 			default: out <= A;
