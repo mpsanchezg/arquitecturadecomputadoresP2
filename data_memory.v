@@ -33,10 +33,9 @@ module data_memory(dataIn, address, w, clk, dataOut);
 	initial
 		begin
 		dataOut <= 0;
-		for(i = 0; i < 32; i=i+1)
-			begin
+		for(i = 0; i < 33; i=i+1)
 			mem[i] = i;
-			end
+			
 		end
 	always @(posedge clk)
 		begin

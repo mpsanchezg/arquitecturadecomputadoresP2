@@ -26,9 +26,16 @@ module BCD(
     );
 	 
 	 integer i;
-	 always @(binary)
+	 reg [7:0] temp;
+	 
+	 always @(*)
 	 begin
 		//set 100's, 10's, and 1's to 0
+	     temp <= binary;
+		  if (binary >= 8'b10000000)
+			begin
+				temp <= (~ binary) + 8'b00000001;
+			end
 		hundreds = 4'd0;
 		tens = 4'd0;
 		ones = 4'd0;
@@ -49,7 +56,7 @@ module BCD(
 			tens = tens << 1;
 			tens[0] = ones[3];
 			ones = ones << 1;
-			ones[0] = binary[i];
+			ones[0] = temp[i];
 		end
 	end
 endmodule

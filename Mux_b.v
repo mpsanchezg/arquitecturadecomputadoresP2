@@ -25,7 +25,7 @@ module Mux_b(B, Im, dataDM, s, out);
 	
 	reg [7:0] out;
 	
-	always @(s, B, Im)
+	always @(s, B, Im, dataDM)
 		case(s)
 			'b00: out <= B;
 			'b01: out <= Im;

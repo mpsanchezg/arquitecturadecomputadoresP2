@@ -24,7 +24,7 @@ module segment7(bcd, seg);
 	 
 	 wire [3:0] bcd;
     reg  [6:0] seg;
-    
+
 	 always @(*)
     begin
         case (bcd)
@@ -38,7 +38,7 @@ module segment7(bcd, seg);
             7 : seg = 7'b1111000;
             8 : seg = 7'b0000000;
             9 : seg = 7'b0010000;
-            default : seg = 7'b0000000; 
+            default : seg = 7'b1111111; 
         endcase
     end
 endmodule

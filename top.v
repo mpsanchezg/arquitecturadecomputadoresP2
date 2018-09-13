@@ -59,7 +59,7 @@ module computer(sw, Led, seg, an, clk);
   wire  [6:0]     seg_out1;
   wire  [6:0]     seg_out2;
   wire  [6:0]     seg_out3;
-  wire  [6:0]     seg_out4;
+
   wire  [7:0]   dm_out_bus; // DM
   wire  [7:0]     out_muxD; // MuxD
   wire  [3:0] regS_out_bus; // RegS
@@ -67,7 +67,7 @@ module computer(sw, Led, seg, an, clk);
   wire [3:0] bcd_out1;
   wire [3:0] bcd_out2;
   wire [3:0] bcd_out3;
-  wire [3:0] bcd_out4;
+
   
   pc PC(.clk(sw),                              // Program Counter
    .dataIM(im_out_bus[7:0]),
@@ -110,7 +110,7 @@ module computer(sw, Led, seg, an, clk);
 	.c(c),
 	.v(v),
 	.out(alu_out_bus));
-  data_memory dm(.dataIn(alu),                 // Data Memory
+  data_memory dm(.dataIn(alu_out_bus),                 // Data Memory
    .address(out_muxD),
 	.clk(sw),
 	.w(out_cu_wDM),
@@ -124,7 +124,7 @@ module computer(sw, Led, seg, an, clk);
 	.n(n),
 	.c(c),
 	.v(v),
-	.out(regS_out_bus));      
+	.out(regS_out_bus));
   BCD bcd(.binary(alu_out_bus),
 	.hundreds(bcd_out3),
 	.tens(bcd_out2),
@@ -144,25 +144,44 @@ module computer(sw, Led, seg, an, clk);
   
   always @(posedge clk) begin
 	i <= i+1;
-	if(i%16 == 0) begin
+	if(i == 1 || i == 2 || i == 3) begin
 		an <= 4'b1110;
-		seg <= seg_out1;
+		seg <= seg_out1;		
 	end
-	else if(i%16 == 4) begin
+	else if(i == 32 || i == 33 || i == 34) begin
 		an <= 4'b1101;
 		seg <= seg_out2;
 	end
-	else if(i%16 == 8) begin
+	else if(i == 64 || i == 65 || i == 66) begin
 		an <= 4'b1011;
 		seg <= seg_out3;
 	end
-	else if(i%16 == 12) begin
+	else if(i == 96|| i == 97|| i == 98) begin
 		an <= 4'b0111;
-		seg <= 'b1000000;
+		if(alu_out_bus >= 'b01000000) begin
+			an <= 4'b0111;
+			seg <= 'b0111111;
+		end
+		else begin
+			an <= 4'b0111;
+			seg <= 'b1000000;
+		end
 	end
+	else if (i == 128) begin
+		i <= 0;
+	 end
 	else begin
-		an <= 4'b1111;
-	end
+		/*an <= 'b1110;
+		seg <= 'b1111111;
+		an <= 'b1101;
+		seg <= 'b1111111;
+		an <= 'b1011;
+		seg <= 'b1111111;
+		an <= 'b0111;
+		seg <= 'b1111111;*/
+		an <= 'b1111;
+		
+	end		
   end
   
   

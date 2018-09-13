@@ -35,7 +35,7 @@ module pc(clk, dataIM, l, pcc);
 	pcc <= pcc + 1;
 	if (l == 1'b1)
 		pcc <= dataIM;
-	if (pcc == 24) begin
+	if (pcc == 91) begin
 		pcc <= 0;
 	end
 	

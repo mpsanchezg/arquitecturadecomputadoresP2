@@ -24,16 +24,16 @@ module alu(a, b, s, z, n, c, v, out);
   output [7:0]  out;
   output    z,n,c,v;
 
-  wire [7:0] a, b;
-  wire [2:0]    s;
-  reg  [7:0]  out;
-  reg  [8:0] temp;
-  reg       ntemp;
-  reg     z,n,c,v;
+  wire [7:0]  a, b;
+  wire [2:0]     s;
+  reg  [7:0]   out;
+  reg  [8:0]  temp;
+  reg        ntemp;
+  reg      z,n,c,v;
   
   integer i;
   
-  always @(a, b, s) begin  
+  always @(a, b, s, c, v, z, n, temp) begin  
    c <= 0;
 	v <= 0;
 	case(s)
@@ -78,7 +78,7 @@ module alu(a, b, s, z, n, c, v, out);
 		default: temp <=  a + b;
 	endcase
 	for (i = 0; i < 8; i = i+1) 
-		ntemp <= ntemp | temp[i];
+		ntemp = ntemp | temp[i];
 	 
 	z = ~ntemp;
 	n = temp[7];

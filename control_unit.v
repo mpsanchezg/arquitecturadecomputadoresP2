@@ -41,7 +41,7 @@ module control_unit(address, dataRegS, lRegB, lRegA, sMuxB, sMuxA, sAlu, wDM, sM
 	reg           sMuxD;
 	reg             lPC;
 	
-	always @(address) begin
+	always @(*) begin
 	case(address)
 		7'b0000000:
 			begin
@@ -265,9 +265,9 @@ module control_unit(address, dataRegS, lRegB, lRegA, sMuxB, sMuxA, sAlu, wDM, sM
 			end
 		7'b0010100: 
 			begin
-        lPC   <=      0;
-        wDM   <=      0;
-        sMuxD <=      0;
+			  lPC   <=      0;
+			  wDM   <=      0;
+			  sMuxD <=      0;
 			  lRegA <=      1;
 			  lRegB <=      0;
 			  sMuxA <=  2'b00;
@@ -276,9 +276,9 @@ module control_unit(address, dataRegS, lRegB, lRegA, sMuxB, sMuxA, sAlu, wDM, sM
 			end
 	   7'b0010101: 
 			begin
-        lPC   <=      0;
-        wDM   <=      0;
-        sMuxD <=      0;
+         lPC   <=      0;
+         wDM   <=      0;
+         sMuxD <=      0;
 			  lRegA <=      1;
 			  lRegB <=      0;
 		    sMuxA <=  2'b11;
@@ -582,7 +582,7 @@ module control_unit(address, dataRegS, lRegB, lRegA, sMuxB, sMuxA, sAlu, wDM, sM
 			  sMuxB <=  2'b11;
 			  sAlu  <= 3'b001;
 			end
-    7'b0110000:
+    7'b0110001:
 			begin
         lPC   <=      0;
         wDM   <=      0;
@@ -1084,7 +1084,16 @@ module control_unit(address, dataRegS, lRegB, lRegA, sMuxB, sMuxA, sAlu, wDM, sM
     		sMuxB <= 2'b00;
     		sAlu <= 3'b000;
     	end  
-    
+    default begin
+        lPC   <=      0;
+        wDM   <=      0;
+        sMuxD <=      0;
+			lRegA <=      1;
+			lRegB <=      0;
+			sMuxB <=  2'b00;
+			sMuxA <=  2'b10;
+			sAlu  <= 3'b000;
+		end
 	endcase
   end
 endmodule
